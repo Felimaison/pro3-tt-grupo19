@@ -1,7 +1,7 @@
 .header {
     background: linear-gradient(90deg, #282c34, #3b3f46); /* Degradado horizontal oscuro */
     color: white;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
