@@ -1,0 +1,69 @@
+.header {
+    background: linear-gradient(90deg, #282c34, #3b3f46); /* Degradado horizontal oscuro */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-left: 20px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+
+.search-container {
+    text-align: center;
+}
+
+.search-form {
+    position: relative;
+    width: 150px;
+    margin-right: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 9px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-size: 13px;
+    background-color: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    background-color: #e0e0e0;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+
