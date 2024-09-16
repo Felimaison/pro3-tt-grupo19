@@ -4,7 +4,7 @@ function Navbar(){
     return(
         <header className="header">
       <div className="logo">
-        <h1>Trabajo</h1>
+      <img src="/img/Logo.jpeg" alt="Logo" />
       </div>
       <nav className="nav">
         <ul className="nav-list">
