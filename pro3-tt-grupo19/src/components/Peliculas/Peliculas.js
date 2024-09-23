@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
+import { Link } from "react-router-dom";
 import "./Peliculas.css"
 
 
@@ -68,7 +69,7 @@ class Peliculas extends Component {
               <p>Cargando...</p>
             )}
           </div>
-          <a href="/more/category/popular">Ver Todas - Películas más populares</a>
+          <Link to="/more/category/popular">Ver Todas las peliculas populares</Link>
         </section>
 
         <section>
@@ -87,7 +88,7 @@ class Peliculas extends Component {
               <p>Cargando...</p>
             )}
           </div>
-          <a href="/more/category/now_playing">Ver Todas - Películas en cartelera</a>
+          <Link to="/more/category/now_playing">Ver Todas las peliculas en cartelera</Link>
         </section>
       </div>
     );

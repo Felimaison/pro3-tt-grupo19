@@ -1,30 +1,20 @@
 import React from "react";
 import "./Navbar.css"
+import { Link } from "react-router-dom"
 function Navbar(){
     return(
         <header className="header">
       <div className="logo">
-      <img src="/img/Logo.jpeg" alt="Logo" />
+      <img src="/img/pochoclo.png" alt="Logo" />
       </div>
+      
       <nav className="nav">
         <ul className="nav-list">
-          <li className="nav-item">
-            <a to="/" className="nav-link">Home</a>
-          </li>
-          <li className="nav-item">
-            <a to="/favoritos" className="nav-link">Favoritos</a>
-          </li>
-          <li className="nav-item">
-            <a to="/ver-todas" className="nav-link">Ver todas</a>
-          </li>
-          <li className="nav-item">
-          <form action="#" method="GET" className="search-form">
-            <input type="text" placeholder="Busca aquí..." class="search-input"></input>
-            <button type="submit" className="boton_buscar">Buscar</button>
-        </form>
-          </li>
-        </ul>
-        
+                <li ><Link className="nav-link" to="/">Home</Link></li>
+                <li ><Link className="nav-link" to="/favorites">Favoritos</Link></li>
+                <li ><Link className="nav-link" to="/more/category/popular">Películas más populares</Link></li>
+                <li ><Link className="nav-link" to="/more/category/now_playing">Películas en cartelera</Link></li>
+            </ul>
       </nav>
       
     </header>

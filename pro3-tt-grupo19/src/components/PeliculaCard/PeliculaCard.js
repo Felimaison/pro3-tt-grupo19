@@ -28,19 +28,17 @@ class PeliculaCard extends Component {
         />
         <h3>{pelicula.title}</h3>
 
-        <button onClick={this.mostrarDescrip}>
-          {verMasId === pelicula.id ? "Ocultar descripción" : "Ver descripción"}
-        </button>
-
-        {verMasId === pelicula.id && <p>{pelicula.overview}</p>}
-
-        <a className="boton_detalle" href={`/detail/id/${pelicula.id}`}>Ir a Detalle</a>
-
         {esFavorito(pelicula.id) ? (
           <button onClick={() => agregarFav(pelicula.id)}>Quitar de favoritos</button>
         ) : (
           <button onClick={() => agregarFav(pelicula.id)}>Agregar a favoritos</button>
         )}
+        <a className="boton_detalle" href={`/detalle/id/${pelicula.id}`}>Mas informacion</a>
+        <button onClick={this.mostrarDescrip}>
+          {verMasId === pelicula.id ? "Ocultar descripción" : "Ver descripción"}
+        </button>
+
+        {verMasId === pelicula.id && <p>{pelicula.overview}</p>}
       </article>
     );
   }
