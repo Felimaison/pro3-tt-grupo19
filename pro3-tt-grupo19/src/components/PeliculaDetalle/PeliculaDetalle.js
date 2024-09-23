@@ -22,11 +22,12 @@ class PeliculaDetalle extends Component {
         const id = this.props.id;
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0331cddd490fdf784d51f00d86f1b001`)
         .then(response => response.json())
-        .then(data => {
-            this.setState({ movie:data, loading: false});
-            this.chequeoFav(data.id)
-        })
-        .catch(e => console.log(e));
+            .then(data => {
+                this.setState({ movie: data, loading: false }, () => {
+                    this.favChequear(data.id);
+                });
+            })
+            .catch(e => console.log(e));
     }
 
     favChequear = (id) => {
@@ -35,17 +36,23 @@ class PeliculaDetalle extends Component {
         this.setState({ esFavorito: favoritos.includes(id)})
     }
 
-    favAgregar = () =>{
-        const{movie, esFavorito} = this.state
-        const id = movie.id
-        let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
-        if(esFavorito) {
+    favAgregar = () => {
+        const { movie, esFavorito } = this.state;
+        const id = movie.id;
+        let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+        if (esFavorito) {
+           
             favoritos = favoritos.filter(favId => favId !== id);   
-        } else{
-            favoritos.push(id);
+        } else {
+           
+            if (!favoritos.includes(id)) {
+                favoritos.push(id);
+            }
         }
+
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        this.setState({esFavorito: !esFavorito})
+        this.setState({ esFavorito: !esFavorito });
     }
 
     render(){
@@ -70,7 +77,7 @@ class PeliculaDetalle extends Component {
                     <p><strong>Género:</strong> {movie.genres.map(g => g.name).join(', ')}</p>
                     <p><strong>Fecha de lanzamiento:</strong> {movie.release_date}</p>
                     <p>{movie.overview}</p>
-                    <button onClick={this.agregarFav}>
+                    <button onClick={this.favAgregar}>
                         {esFavorito ? "Quitar de favoritos" : "Agregar a favoritos"}
                     </button>
                     <a href="/">Volver al inicio</a>
