@@ -1,10 +1,23 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #282c34;
-    color: white;
-    margin-top: 20px;
-  }
-  
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Para que sea responsive */
+}
+
+.footer-content span {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-content span:hover {
+  color: #61dafb;
+}
