@@ -54,7 +54,7 @@ class Favoritos extends Component{
 
         return(
             <div className="favoritos">
-        <h2>Películas Favoritas</h2>
+        <h2>Titulos Favoritos</h2>
         <div className="contenedor-peliculas">
           {peliculasFavoritas.length > 0 ? (
             peliculasFavoritas.map((peli) => (

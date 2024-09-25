@@ -54,7 +54,7 @@ class Peliculas extends Component {
     return (
       <div className="peliculas">
         <section>
-          <h2>PELÍCULAS POPULARES</h2>
+          <h2> POPULARES</h2>
           <div className="contenedor-peliculas">
             {populares.length > 0 ? (
               populares.map((movie) => (
@@ -73,7 +73,7 @@ class Peliculas extends Component {
         </section>
 
         <section>
-          <h2>PELÍCULAS EN CARTELERA</h2>
+          <h2> EN CARTELERA</h2>
           <div className="contenedor-peliculas">
             {nowPlaying.length > 0 ? (
               nowPlaying.map((movie) => (
