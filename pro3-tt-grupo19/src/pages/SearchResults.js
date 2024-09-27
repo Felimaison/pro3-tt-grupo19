@@ -1,4 +1,3 @@
-// SearchResults.js
 import React, { Component } from 'react';
 import PeliculaCard from "../components/PeliculaCard/PeliculaCard"; 
 import Loader from '../components/Loader/Loader';
@@ -47,17 +46,17 @@ class SearchResults extends Component {
       return;
     }
 
-    this.setState({ isLoading: true }); // Activar el loader antes de buscar
+    this.setState({ isLoading: true }); 
 
     fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=0331cddd490fdf784d51f00d86f1b001`)
       .then((response) => response.json())
       .then((data) => {
-        setTimeout(() => { // Simulamos un pequeño retraso para que el loader sea visible
+        setTimeout(() => { 
           this.setState({
             movies: data.results || [],
-            isLoading: false, // Desactivar el loader después de cargar los datos
+            isLoading: false, 
           });
-        }, 1000); // 1 segundo de retraso para que el loader se muestre
+        }, 1000); 
       })
       .catch((e) => console.log(e));
   };
@@ -87,7 +86,7 @@ class SearchResults extends Component {
             </div>
           </>
         ) : (
-          <Loader /> // Mostrar loader mientras isLoading es true
+          <Loader /> 
         )}
       </>
     );

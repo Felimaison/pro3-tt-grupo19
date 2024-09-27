@@ -1,53 +1,93 @@
 .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(145deg, #1a1a1d, #2c2c47); 
-    background-size: cover;
-    background-attachment: fixed; 
-    font-family: 'Helvetica Neue', sans-serif;
-    padding: 40px;
-    line-height: 1.6;
-  }
-  
-  .movie-card {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #333; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .movie-card img {
-    width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .movie-card h4 {
-    font-size: 24px;
-    margin-top: 15px;
-    color: whitesmoke; 
-  }
-  
-  .movie-card p {
-    font-size: 16px;
-    color: #b3b3b3; 
-    margin-top: 10px;
-  }
-  
-  .movie-card a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #d30000; 
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .movie-card a:hover {
-    color: #a70000; 
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  background: linear-gradient(145deg, #1a1a1d, #2c2c47);
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 50px;
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: row; /* Cambia a "row" para un diseño horizontal */
+  max-width: auto; /* Mayor anchura para usar más espacio horizontal */
+  width: auto; /* Ocupa el 100% del ancho disponible */
+  padding: 30px;
+  background-color: #222;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Sombras más fuertes para más profundidad */
+  border-radius: 20px;
+  color: whitesmoke;
+  transition: transform 0.3s ease;
+  gap: 30px; /* Añade espacio entre la imagen y el contenido */
+}
+
+.movie-card:hover {
+  transform: scale(1.02); /* Efecto de "zoom" al pasar el ratón */
+}
+
+.movie-card img {
+  width: auto; /* Reducción del tamaño de la imagen para que sea más pequeña */
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.movie-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1; /* Permite que el contenido ocupe todo el espacio disponible */
+}
+
+.movie-card h4 {
+  font-size: 32px; /* Tamaño más grande para el título */
+  margin-top: 10px;
+  color: #ffeb3b; /* Color destacado para el título */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.movie-card p {
+  font-size: 18px;
+  color: #cccccc;
+  margin: 10px 0;
+}
+
+.movie-card button {
+  background-color: #d30000;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.movie-card button:hover {
+  background-color: #a70000;
+}
+
+.movie-card a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #00bcd4;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #00bcd4;
+  border-radius: 5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.movie-card a:hover {
+  background-color: #00bcd4;
+  color: #fff;
+}
