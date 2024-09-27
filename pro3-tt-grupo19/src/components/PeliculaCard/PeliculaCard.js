@@ -39,6 +39,7 @@ class PeliculaCard extends Component {
         </button>
 
         {verMasId === pelicula.id && <p>{pelicula.overview}</p>}
+        
       </article>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PeliculaCard from "../components/PeliculaCard/PeliculaCard"; // Usamos tu componente de PeliculaCard
+import PeliculaCard from "../components/PeliculaCard/PeliculaCard"; // Asegúrate de que la ruta es correcta
+import Loader from '../components/Loader/Loader';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -8,12 +9,37 @@ class SearchResults extends Component {
     this.state = {
       movies: [],
       isLoading: true,
+      favoritos: [], 
     };
   }
 
   componentDidMount() {
     this.fetchMovies();
+    this.loadFavoritos(); 
   }
+
+
+  loadFavoritos = () => {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    this.setState({ favoritos });
+  }
+
+
+  esFavorito = (id) => {
+    return this.state.favoritos.includes(id);
+  };
+
+
+  toggleFavorito = (id) => {
+    let { favoritos } = this.state;
+    if (favoritos.includes(id)) {
+      favoritos = favoritos.filter(favId => favId !== id); 
+    } else {
+      favoritos.push(id);
+    }
+    localStorage.setItem("favoritos", JSON.stringify(favoritos)); 
+    this.setState({ favoritos });
+  };
 
   fetchMovies = () => {
     const query = this.props.location.state?.query;
@@ -49,8 +75,8 @@ class SearchResults extends Component {
                   <PeliculaCard
                     key={peli.id}
                     pelicula={peli}
-                    esFavorito={() => false} // Ajusta según tu lógica de favoritos
-                    agregarFav={() => {}} // Ajusta según tu lógica de favoritos
+                    esFavorito={this.esFavorito} 
+                    agregarFav={this.toggleFavorito} 
                   />
                 ))
               ) : (
@@ -59,7 +85,7 @@ class SearchResults extends Component {
             </div>
           </>
         ) : (
-          <p>Cargando...</p>
+          <Loader />
         )}
       </>
     );
