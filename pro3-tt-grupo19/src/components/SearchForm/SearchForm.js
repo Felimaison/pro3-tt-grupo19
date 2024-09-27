@@ -1,5 +1,6 @@
+// SearchForm.js
 import React, { Component } from "react";
-import "./SearchForm.css"
+import "./SearchForm.css";
 
 class SearchForm extends Component {
   constructor(props) {
@@ -18,8 +19,12 @@ class SearchForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault(); // Evita el comportamiento por defecto del formulario
-    if (this.state.query.trim()) {
+    
+    // Validar que el query no esté vacío
+    if (this.state.query && this.state.query !== "") {
       this.props.history.push("/search", { query: this.state.query });
+    } else {
+      alert("Por favor, ingresa un término de búsqueda.");
     }
   };
 
@@ -40,4 +45,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm
+export default SearchForm;

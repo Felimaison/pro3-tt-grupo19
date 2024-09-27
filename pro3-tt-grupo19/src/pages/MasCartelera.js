@@ -13,7 +13,7 @@ class MasCartelera extends Component {
       peliculasFiltradas: [],
       valorFiltrado: "",
       paginaActual: 1,
-      loading: true, // Estado de carga
+      loading: true, 
     };
   }
 

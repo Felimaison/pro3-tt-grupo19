@@ -1,5 +1,6 @@
+// SearchResults.js
 import React, { Component } from 'react';
-import PeliculaCard from "../components/PeliculaCard/PeliculaCard"; // Asegúrate de que la ruta es correcta
+import PeliculaCard from "../components/PeliculaCard/PeliculaCard"; 
 import Loader from '../components/Loader/Loader';
 
 class SearchResults extends Component {
@@ -18,17 +19,14 @@ class SearchResults extends Component {
     this.loadFavoritos(); 
   }
 
-
   loadFavoritos = () => {
     const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
     this.setState({ favoritos });
   }
 
-
   esFavorito = (id) => {
     return this.state.favoritos.includes(id);
   };
-
 
   toggleFavorito = (id) => {
     let { favoritos } = this.state;
@@ -49,13 +47,17 @@ class SearchResults extends Component {
       return;
     }
 
+    this.setState({ isLoading: true }); // Activar el loader antes de buscar
+
     fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=0331cddd490fdf784d51f00d86f1b001`)
       .then((response) => response.json())
       .then((data) => {
-        this.setState({
-          movies: data.results || [],
-          isLoading: false,
-        });
+        setTimeout(() => { // Simulamos un pequeño retraso para que el loader sea visible
+          this.setState({
+            movies: data.results || [],
+            isLoading: false, // Desactivar el loader después de cargar los datos
+          });
+        }, 1000); // 1 segundo de retraso para que el loader se muestre
       })
       .catch((e) => console.log(e));
   };
@@ -85,7 +87,7 @@ class SearchResults extends Component {
             </div>
           </>
         ) : (
-          <Loader />
+          <Loader /> // Mostrar loader mientras isLoading es true
         )}
       </>
     );

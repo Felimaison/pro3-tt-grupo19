@@ -1,3 +1,4 @@
+// Home.js
 import React from "react";
 import Peliculas from "../components/Peliculas/Peliculas";
 import SearchForm from "../components/SearchForm/SearchForm"; // Importa el componente SearchForm
